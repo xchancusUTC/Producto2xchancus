@@ -1,20 +1,45 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+@(Pedido: java.util.List[pedido]) 
+<html>
+<head>
+</head>
+<body>
+<table border="1">
+	<tr>
+			<td>Nombre restaurante</td>
+			<td>Nombre pedido</td>
+			<td>Tipo pedido</td>
+			<td>Cantidad pedido</td>
+			<td>Precio pedido</td>
+	</tr>
+	
+	@for(pedido <- Pedido){
+	<tr>
+			<td>@pedido.name</td>
+			<td>
+			 @if(restaurante.pedido == null) {
+                                <em>-</em>
+                            } else {
+                                @pedido..tipo
+ }
+			</td>
+			<td>
+                            @if(restaurante.pedido == null) {
+                                <em>-</em>
+                            } else {
+                                @restaurante.cantidad
+                            }
+                        </td>
+                        <td>
+                            @if(restaurante.pedido == null) {
+                                <em>-</em>
+                            } else {
+                                @pedido.pedido.precio
+                        </td>
+	</tr>
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+	<tr>
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Java")
-
-}
+	</tr>
+</table>
+</body>
+</html>

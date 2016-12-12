@@ -1,7 +1,9 @@
 package controllers;
 
-import play.mvc.*;
+import java.util.List;
 
+import models.Computer;
+import play.mvc.*;
 import views.html.*;
 
 /**
@@ -17,7 +19,12 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render("Your new application is ready."));
+    	  List<pedido> pedidos = pedido.listadopedido();
+    	   pedidos.get(2);
+    	  
+    	    	
+    	        return ok(index.render(pedido.listadopedido()));
+       
     }
 
 }
